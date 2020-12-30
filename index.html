@@ -1,0 +1,219 @@
+<!doctype html>
+<html amp lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Hello, AMPs</title>
+    <link rel="canonical" href="https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup/">
+    <!--Script used for carousel-->
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <!--Script used for Sidebar-->
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <!--Hide and Show-->
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <!--Script used for Accordian-->
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+    <!-- Script Used for AMP Cards-->
+    <script async custom-element="amp-embedly-card" src="https://cdn.ampproject.org/v0/amp-embedly-card-0.1.js"></script>
+    <meta name="viewport" content="width=device-width">
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
+
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+    </style><noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style>
+    </noscript>
+    <style amp-custom>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #edf2f4;
+        }
+
+        h1 {
+            color: #023047;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            grid-gap: 10px;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .cta {
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .cta_click {
+            color: #ffffff;
+            background-color: tomato;
+            padding: 12px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+        .accord {
+            padding-top: 30px;
+        }
+
+        .accord section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to AMP Pages</h1>
+    <div class="container">
+
+        <!--AMP Sidebar: We have to use different script for different element to work-->
+        <button on="tap:sidebar1">Open Sidebar</button>
+        <amp-sidebar id="sidebar1" layout="nodisplay" style="width:300px">
+            <amp-nested-menu layout="fill">
+                <ul>
+                    <li>
+                        <h4 amp-nested-submenu-open>Open Sub-Menu</h4>
+                        <div amp-nested-submenu>
+                            <ul>
+                                <li>
+                                    <h4 amp-nested-submenu-close>Go back</h4>
+                                </li>
+                                <li>
+                                    <h4 amp-nested-submenu-open>Open Another Sub-Menu</h4>
+                                    <div amp-nested-submenu>
+                                        <h4 amp-nested-submenu-close>Go back</h4>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://amp.dev/">Link</a>
+                    </li>
+                </ul>
+            </amp-nested-menu>
+        </amp-sidebar>
+
+        <!--AMP Images-->
+        <div class="box">
+            <amp-img width="180px" height="180px" src="images/1.png"></amp-img>
+            <amp-img width="180px" height="180px" src="images/3.png" layout="fixed"></amp-img>
+            <amp-img width="180px" height="180px" src="images/5.png" layout="fixed"></amp-img>
+            <amp-img width="180px" height="180px" src="images/7.png" layout="fixed"></amp-img>
+            <amp-img width="180px" height="180px" src="images/2.png" layout="fixed"></amp-img>
+            <amp-img width="180px" height="180px" src="images/4.png" layout="fixed"></amp-img>
+            <amp-img width="180px" height="180px" src="images/6.png" layout="fixed"></amp-img>
+            <amp-img width="180px" height="180px" src="images/8.png"></amp-img>
+        </div>
+        <div class="cta">
+            <a href="https://www.google.com" class="cta_click">Click Here</a>
+        </div>
+
+        <!--AMP Carousel-->
+        <h1>AMP-Carousel</h1>
+        <!--autoplay delay="2000"-->
+        <amp-carousel height="300" layout="fixed-height" type="carousel" role="region"
+            aria-label="Basic usage carousel">
+            <amp-img src="images/4.png" width="400" height="300" alt="a sample image"></amp-img>
+            <amp-img src="images/3.png" width="400" height="300" alt="another sample image"></amp-img>
+            <amp-img src="images/8.png" width="400" height="300" alt="and another sample image"></amp-img>
+            <amp-img src="images/6.png" width="400" height="300" alt="a sample image"></amp-img>
+            <amp-img src="images/3.png" width="400" height="300" alt="another sample image"></amp-img>
+            <amp-img src="images/1.png" width="400" height="300" alt="and another sample image"></amp-img>
+        </amp-carousel>
+
+        <!--Accordian-->
+        <h1>AMP Accordian</h1>
+        <amp-accordion expand-single-section class="accord">
+            <section>
+                <h2>Motor Insurance</h2>
+                <p>4w/2w Insurance</p>
+            </section>
+            <section>
+                <h2>Health Insurance</h2>
+                <div>::::::: Health Insurance ::::::::</div>
+            </section>
+            <section>
+                <h2>Travel Insurance</h2>
+                <p>::::::::: Travel Insurance :::::::::</p>
+            </section>
+        </amp-accordion>
+
+        <!--AMP Cards-->
+        <amp-embedly-card data-url="https://twitter.com/AMPhtml/status/986750295077040128" layout="responsive"
+            width="150" height="80" data-card-theme="dark" data-card-controls="0">
+        </amp-embedly-card>
+
+        <amp-embedly-card data-url="https://www.youtube.com/watch?v=lBTCB7yLs8Y" layout="responsive" width="100"
+            height="50">
+        </amp-embedly-card>
+    </div>
+</body>
+
+</html>
